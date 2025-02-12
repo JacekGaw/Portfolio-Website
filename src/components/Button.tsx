@@ -2,14 +2,15 @@ import React, { ReactNode } from "react";
 
 interface ButtonProps {
     children: ReactNode;
-    variant?: number
+    variant?: number;
+    size?: "sm" | "base"
 }
 
-const Button: React.FC<ButtonProps> = ({children, variant = 0}) => {
+const Button: React.FC<ButtonProps> = ({children, variant = 0, size = 'base'}) => {
 
     const variants = [
-        `px-5 flex justify-center items-center h-16 w-auto rounded-[30px] border border-black `,
-        `p-2 w-16 h-16 flex justify-center items-center rounded-full border border-black `,
+        ` flex justify-center items-center ${size == 'base' && "h-16 px-5"} ${size == 'sm' && "h-12 px-3"} w-auto rounded-[30px] border border-black `,
+        `${size == 'base' && "h-16 w-16 p-2"} ${size == 'sm' && "h-12 w-12 p-2"} flex justify-center items-center rounded-full border border-black `,
     ]
 
     return (
