@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "../../components/Header";
-import { projects, ProjectType } from "./projects";
+import { projects } from "./projectsArr";
 import { Link } from "react-router";
 import arrowSkew from "../../assets/img/ArrowSkewed.png"
 import arrowShort from "../../assets/img/ArrowShorter.png"
@@ -32,7 +32,7 @@ const Projects: React.FC = () => {
         <div className="w-full max-w-screen-xl flex flex-col gap-10 justify-center items-center">
           <Header orientation="center">Projects</Header>
           <p>Besides of work projects, I am also doing some on my own!</p>
-          <div className="w-full flex gap-20 items-center justify-between">
+          <div className="w-full flex flex-col lg:flex-row gap-20 items-center justify-between">
             <div className="flex-1 flex flex-col gap-5">
                 <h3 className="text-2xl font-[600]">{projects[currentProject].name}</h3>
                 <p className="leading-7">{projects[currentProject].description}</p>
@@ -45,9 +45,11 @@ const Projects: React.FC = () => {
                     <p className="w-1 h-1 rounded-full bg-gray-300"></p>
                     </>
                 ))}</div>
-                <div className="flex justify-end gap-5 p-2">
-                    {projects[currentProject].github && <Link target="_blank" to={projects[currentProject].github} className="flex gap-2 items-center">see on github <img className="h-4 w-auto" src={arrowSkew} /></Link>}
-                    <button className="flex gap-2 items-center">read more <img  src={arrowShort} /></button>
+                <div className="flex justify-end flex-wrap gap-5 p-2">
+                    {projects[currentProject].github && <Link target="_blank" to={projects[currentProject].github} className=" gap-2 items-center hidden md:flex">see on github <img className="h-4 w-auto" src={arrowSkew} /></Link>}
+                    {projects[currentProject].github && <Link target="_blank" to={projects[currentProject].github} className="flex gap-2 items-center">github <img className="h-4 w-auto md:hidden" src={arrowSkew} /></Link>}
+                    <button className="hidden md:flex gap-2 items-center">read more <img  src={arrowShort} /></button>
+                    <button className="flex gap-2 items-center md:hidden">more <img  src={arrowShort} /></button>
                 </div>
             </div>
             <div className="flex-1 flex justify-center items-center">

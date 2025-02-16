@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../components/Header";
 import { Experiences } from "./Experiences";
 import arrowLongImg from "../../assets/img/Arrow.svg"
+import arrowShortImg from "../../assets/img/ArrowShorter.png"
 
 const Experience: React.FC = () => {
   return (
@@ -27,7 +28,8 @@ const Experience: React.FC = () => {
                     <div className="flex justify-end">
                         <button className="flex gap-2 items-center">
                             <p>projects and more</p>
-                            <img  src={arrowLongImg} />
+                            <img className="hidden md:block" src={arrowLongImg} />
+                            <img className="md:hidden h-2 w-auto" src={arrowShortImg} />
                         </button>
                     </div>
                 </div>

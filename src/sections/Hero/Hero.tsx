@@ -1,9 +1,6 @@
 import React from "react";
 import locationIcon from "../../assets/img/location.svg"
-import githubIcon from "../../assets/img/github.svg"
-import linkedinIcon from "../../assets/img/linkedin.svg"
-import mailIcon from "../../assets/img/envelope.svg"
-import Button from "../../components/Button";
+import Socials from "../../components/Socials";
 import { Link } from "react-router";
 
 
@@ -19,12 +16,7 @@ const Hero: React.FC = () => {
                         <img src={locationIcon} className="h-6 md:h-10 w-auto opacity-50" />
                         <p className="text-lg md:text-2xl text-gray-600 font-[400]">based in Wrocław, Poland</p>
                     </div>
-                    <div className="flex items-center gap-2 md:gap-5">
-                        <Link to="https://github.com/JacekGaw" target="_blank" className="rounded-full"><Button variant={1}><img src={githubIcon} className="h-8 w-auto" /></Button></Link>
-                        <Link to="https://www.linkedin.com/in/jacek-gawlyta/" target="_blank" className="rounded-full"><Button variant={1}><img src={linkedinIcon} className="h-8 w-auto" /></Button></Link>
-                        <Link to="mailto:jac.gawlyta@gmail.com" target="_blank" className="rounded-full"><Button variant={1}><img src={mailIcon} className="h-8 w-auto" /></Button></Link>
-                        <Link to={"/Jacek_Gawlyta_CV.pdf"} download target="_blank" className="rounded-full"><Button >Download CV</Button></Link>
-                    </div>
+                    <Socials />
                 </header>
                 <nav>
                     <ul className="flex flex-col  items-end gap-3 md:gap-10 md:text-3xl">
