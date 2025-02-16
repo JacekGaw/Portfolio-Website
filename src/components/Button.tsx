@@ -3,10 +3,11 @@ import React, { ReactNode } from "react";
 interface ButtonProps {
     children: ReactNode;
     variant?: number;
-    size?: "sm" | "base"
+    size?: "sm" | "base",
+    onClick?: () => void
 }
 
-const Button: React.FC<ButtonProps> = ({children, variant = 0, size = 'base'}) => {
+const Button: React.FC<ButtonProps> = ({children, variant = 0, size = 'base', onClick}) => {
 
     const variants = [
         ` flex justify-center items-center ${size == 'base' && "h-16 px-5"} ${size == 'sm' && "h-12 px-3"} w-auto rounded-[30px] border border-black `,
@@ -14,7 +15,7 @@ const Button: React.FC<ButtonProps> = ({children, variant = 0, size = 'base'}) =
     ]
 
     return (
-        <button className={`${variants[variant]} cursor-pointer`}>{children}</button>
+        <button onClick={onClick} className={`${variants[variant]} cursor-pointer`}>{children}</button>
     )
 }
 
