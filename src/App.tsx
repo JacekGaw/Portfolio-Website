@@ -1,6 +1,7 @@
 import React from "react"
 import Hero from "./sections/Hero/Hero"
 import About from "./sections/About/About"
+import Experience from "./sections/Experience/Experience"
 
 const App: React.FC = () => {
 
@@ -8,6 +9,7 @@ const App: React.FC = () => {
     <main className="tracking-widest">
       <Hero />
       <About />
+      <Experience />
     </main>
   )
 }
