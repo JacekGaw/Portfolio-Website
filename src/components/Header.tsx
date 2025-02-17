@@ -14,7 +14,7 @@ const Header: React.FC<HeaderProps> = ({children,className, variant = 0, orienta
     ]
 
     return (
-        <h3 className={`${variants[variant]} cursor-pointer text-${orientation} ${className}`}>{children}</h3>
+        <h3 className={`${variants[variant]}  text-${orientation} ${className}`}>{children}</h3>
     )
 }
 

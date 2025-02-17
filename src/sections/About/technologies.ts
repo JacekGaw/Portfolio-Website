@@ -7,7 +7,6 @@ import html from "../../assets/techIcons/html5.svg";
 import tailwind from "../../assets/techIcons/tailwind.svg";
 import mysql from "../../assets/techIcons/mysql.svg";
 import mongodb from "../../assets/techIcons/mongodb.svg";
-import jest from "../../assets/techIcons/jest.svg";
 
 
 export const technologies = [

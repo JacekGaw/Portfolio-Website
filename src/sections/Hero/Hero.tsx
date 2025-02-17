@@ -1,7 +1,5 @@
-import React from "react";
 import locationIcon from "../../assets/img/location.svg"
 import Socials from "../../components/Socials";
-import { Link } from "react-router";
 
 
 const Hero: React.FC = () => {
