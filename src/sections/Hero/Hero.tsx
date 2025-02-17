@@ -20,10 +20,10 @@ const Hero: React.FC = () => {
                 </header>
                 <nav>
                     <ul className="flex flex-col  items-end gap-3 md:gap-10 md:text-3xl">
-                        <Link to={"#"}>About -</Link>
-                        <Link to={"#"}>Experience -</Link>
-                        <Link to={"#"}>Projects -</Link>
-                        <Link to={"#"}>Contact -</Link>
+                        <a href="#about" >About -</a>
+                        <a href="#experience">Experience -</a>
+                        <a href="#projects">Projects -</a>
+                        <a href="#contact">Contact -</a>
                     </ul>
                 </nav>
             </div>

@@ -7,7 +7,7 @@ import arrowShortImg from "../../assets/img/ArrowShorter.png"
 const Experience: React.FC = () => {
   return (
     <>
-      <section className="flex border-t p-10 w-full h-full min-h-screen justify-center items-center">
+      <section id="experience" className="flex border-t p-10 w-full h-full min-h-screen justify-center items-center">
         <div className="w-full max-w-screen-xl flex flex-col gap-10 justify-center items-center">
           <Header orientation="center">Experience</Header>
           <p className="max-w-screen-md text-center leading-7">

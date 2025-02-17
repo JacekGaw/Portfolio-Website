@@ -28,7 +28,7 @@ const Projects: React.FC = () => {
     }
   return (
     <>
-      <section className="flex border-t p-10 w-full h-full min-h-screen justify-center items-center">
+      <section id="projects" className="flex border-t p-10 w-full h-full min-h-screen justify-center items-center">
         <div className="w-full max-w-screen-xl flex flex-col gap-10 justify-center items-center">
           <Header orientation="center">Projects</Header>
           <p>Besides of work projects, I am also doing some on my own!</p>

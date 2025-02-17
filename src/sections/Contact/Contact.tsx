@@ -7,7 +7,7 @@ import envelopeImg from "../../assets/img/send.svg"
 const Contact: React.FC = () => {
   return (
     <>
-      <section className="flex border-t p-10 w-full h-full min-h-screen justify-center items-center">
+      <section id="contact" className="flex border-t p-10 w-full h-full min-h-screen justify-center items-center">
         <div className="w-full max-w-screen-xl flex flex-col lg:flex-row gap-20 md:gap-20 justify-center items-center md:justify-between md:items-start">
           <div className="flex-1 flex flex-col gap-10 lg:gap-20">
             <div className="flex flex-col justify-center items-start gap-5">
