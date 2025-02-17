@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import path from "path";
+import nodemailer from 'nodemailer';
 
 import { fileURLToPath } from "url";
 
@@ -46,6 +47,46 @@ app.use(express.static(distPath));
 app.get("*", (_, res) => {
   res.sendFile(path.join(distPath, "index.html"));
 });
+
+app.post("/contact", async (req, res) => {
+  try {
+    const transporter = nodemailer.createTransport({
+      service: process.env.MAIL_SERVICE,
+      host: process.env.MAIL_HOST,
+      port: process.env.MAIL_PORT,
+      secure: process.env.MAIL_SECURE,
+      auth: {
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASSWORD,
+      },
+    });
+    const {name, email, message} = req.body;
+    const timestamp = new Date();
+    const text = 
+    `
+    Hey!
+    You have a new message from ${name} (${email}). It was sent on ${timestamp.toLocaleString('en-GB')}.
+    Message is:
+
+    ${message}
+
+    Remember to get back to it!
+    Your website! :)
+    `
+
+    const mailOptions = {
+      from: process.env.MAIL_USER,
+      to: process.env.MAIL_TO,
+      subject: "Someone leave a message on your website!",
+      text: text,
+    };
+    await transporter.sendMail(mailOptions);
+    return res.status(200).json({message: "Message sent"});
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({message: err.message});
+  }
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
