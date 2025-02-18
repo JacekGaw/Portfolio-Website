@@ -49,6 +49,8 @@ app.get("*", (_, res) => {
   res.sendFile(path.join(distPath, "index.html"));
 });
 
+app.set("trust proxy", 1);
+
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 10,

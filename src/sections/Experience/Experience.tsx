@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 const Experience: React.FC = () => {
   return (
     <>
-      <section id="experience" className="flex border-t p-10 w-full h-full min-h-screen justify-center items-center">
+      <section id="experience" className="flex border-t dark:border-gray-500 p-10 w-full h-full min-h-screen justify-center items-center dark:bg-black dark:text-gray-100">
         <div className="w-full max-w-screen-xl flex flex-col gap-10 justify-center items-center">
           <Header orientation="center">Experience</Header>
           <p className="max-w-screen-md text-center leading-7">
@@ -40,8 +40,8 @@ const Experience: React.FC = () => {
                         viewport={{ once: true, amount: 1 }}
                         className="flex gap-2 items-center cursor-pointer">
                             <p>projects and more</p>
-                            <img className="hidden md:block" src={arrowLongImg} />
-                            <img className="md:hidden h-2 w-auto" src={arrowShortImg} />
+                            <img className="hidden md:block dark:invert" src={arrowLongImg} />
+                            <img className="md:hidden h-2 w-auto dark:invert" src={arrowShortImg} />
                         </motion.button>
                     </div>
                 </div>

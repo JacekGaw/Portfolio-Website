@@ -14,7 +14,7 @@ const App: React.FC = () => {
       <Experience />
       <Projects />
       <Contact />
-      <footer className="w-full bg-black text-white p-2 flex justify-center items-center"><p>2025, Jacek Gawlyta</p></footer>
+      <footer className="w-full bg-black dark:bg-white dark:text-gray-950 text-white p-2 flex justify-center items-center"><p>2025, Jacek Gawlyta</p></footer>
     </main>
   )
 }

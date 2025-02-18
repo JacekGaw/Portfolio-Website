@@ -35,7 +35,7 @@ const listItemNegative = {
 
 const Hero: React.FC = () => {
   return (
-    <section className="flex p-10 w-full h-full min-h-screen justify-center items-center">
+    <section className="flex p-10 w-full h-full min-h-screen justify-center items-center dark:bg-black dark:text-gray-100">
       <div className="w-full max-w-screen-xl flex flex-col md:flex-row gap-10 md:gap-5 justify-center items-center md:justify-between md:items-start">
         <motion.header
           variants={container}
@@ -61,8 +61,8 @@ const Hero: React.FC = () => {
             className="flex gap-2 md:gap-5 items-center"
             variants={listItemNegative}
           >
-            <img src={locationIcon} className="h-6 md:h-10 w-auto opacity-50" />
-            <p className="text-lg md:text-2xl text-gray-600 font-[400]">
+            <img src={locationIcon} className="h-6 md:h-10 w-auto opacity-50 dark:invert" />
+            <p className="text-lg md:text-2xl text-gray-600 dark:text-gray-400 font-[400]">
               based in Wrocław, Poland
             </p>
           </motion.div>

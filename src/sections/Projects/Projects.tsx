@@ -30,7 +30,7 @@ const Projects: React.FC = () => {
     <>
       <section
         id="projects"
-        className="flex border-t p-10 w-full h-full min-h-screen justify-center items-center"
+        className="flex border-t dark:border-gray-500 p-10 w-full h-full min-h-screen justify-center items-center dark:bg-black dark:text-gray-100"
       >
         <div className="w-full max-w-screen-xl flex flex-col gap-10 justify-center items-center">
           <Header orientation="center">Projects</Header>
@@ -56,7 +56,7 @@ const Projects: React.FC = () => {
                 <p className="leading-7">
                   {projects[currentProject].description}
                 </p>
-                <div className=" flex justify-start items-center flex-wrap text-sm gap-2 font-[400] text-gray-500">
+                <div className=" flex justify-start items-center flex-wrap text-sm gap-2 font-[400] text-gray-500 dark:text-gray-400">
                   <p className="w-1 h-1 rounded-full bg-gray-300"></p>
                   {projects[currentProject].stack.map((item, index) => (
                     <div className="flex items-center gap-2" key={index}>
@@ -77,7 +77,7 @@ const Projects: React.FC = () => {
                       className=" gap-2 items-center hidden md:flex"
                     >
                       see on github{" "}
-                      <img className="h-4 w-auto" src={arrowSkew} />
+                      <img className="h-4 w-auto dark:invert" src={arrowSkew} />
                     </Link>
                     </motion.div>
                   )}
@@ -91,7 +91,7 @@ const Projects: React.FC = () => {
                       className="flex gap-2 items-center md:hidden"
                     >
                       github{" "}
-                      <img className="h-4 w-auto md:hidden" src={arrowSkew} />
+                      <img className="h-4 w-auto md:hidden dark:invert" src={arrowSkew} />
                     </Link>
                     </motion.div>
                   )}
@@ -99,13 +99,13 @@ const Projects: React.FC = () => {
                   whileHover={{x:-5}}
                   whileTap={{scale: 0.9}}
                   className="hidden md:flex gap-2 items-center cursor-pointer">
-                    read more <img src={arrowShort} />
+                    read more <img className="dark:invert" src={arrowShort} />
                   </motion.button>
                   <motion.button
                   whileHover={{x:-5}}
                   whileTap={{scale: 0.9}}
                   className="flex gap-2 items-center md:hidden">
-                    more <img src={arrowShort} />
+                    more <img className="dark:invert" src={arrowShort} />
                   </motion.button>
                 </div>
               </motion.div>
@@ -131,13 +131,13 @@ const Projects: React.FC = () => {
             className="flex justify-center items-center gap-5"
           >
             <Button onClick={handlePrevious} variant={1} size="sm">
-              <img className="h-4 w-auto rotate-180" src={arrowRight} />
+              <img className="h-4 w-auto rotate-180 dark:invert" src={arrowRight} />
             </Button>
             <p>
               {projects[currentProject].id}/{projects.length}
             </p>
             <Button onClick={handleNext} variant={1} size="sm">
-              <img className="h-4 w-auto" src={arrowRight} />
+              <img className="h-4 w-auto dark:invert" src={arrowRight} />
             </Button>
           </motion.div>
         </div>
