@@ -7,10 +7,13 @@ import axios from "axios";
 
 
 const Contact: React.FC = () => {
-    const [errorMessage, setErrorMessage] = useState<string>("")
+    const [errorMessage, setErrorMessage] = useState<string>("");
+    const [buttonDisabled, setButtonDisabled] = useState<boolean>(false);
+
 
     const handleSubmit = async (event: React.SyntheticEvent<HTMLFormElement>) => {
         event.preventDefault();
+        setButtonDisabled(true)
         setErrorMessage("");
         const formData = new FormData(event.currentTarget);
         const name = formData.get("name") as string | null;
@@ -27,9 +30,11 @@ const Contact: React.FC = () => {
             console.log(response);
             if(response.status === 200) {
                 setErrorMessage("Message sent!")
+                setButtonDisabled(false)
             }            
         } catch {
             setErrorMessage("Could not send message. Try agail later.")
+            setButtonDisabled(false)
         }
       };
 
@@ -62,8 +67,7 @@ const Contact: React.FC = () => {
                 <textarea name="message" id="message" aria-label="Message"  placeholder="Message..." className="border p-5 rounded-2xl text-lg" />
                 <div className="flex justify-end gap-2 items-center">
                 <p className="text-sm text-right">{errorMessage}</p>
-                <Button className="self-end" type="submit">send <img src={envelopeImg} className="h-6 w-auto pl-2" /></Button>
-                
+                <Button className="self-end" type="submit" disabled={buttonDisabled}>send <img src={envelopeImg} className="h-6 w-auto pl-2" /></Button>
                 </div>
                 
               </form>

@@ -4,6 +4,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import path from "path";
 import nodemailer from 'nodemailer';
+import rateLimit from "express-rate-limit";
 
 import { fileURLToPath } from "url";
 
@@ -48,7 +49,13 @@ app.get("*", (_, res) => {
   res.sendFile(path.join(distPath, "index.html"));
 });
 
-app.post("/contact", async (req, res) => {
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  message: "Too many messages sending attempts."
+});
+
+app.post("/contact",limiter, async (req, res) => {
   try {
     const transporter = nodemailer.createTransport({
       service: process.env.MAIL_SERVICE,

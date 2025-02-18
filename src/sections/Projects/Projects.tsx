@@ -38,12 +38,12 @@ const Projects: React.FC = () => {
                 <p className="leading-7">{projects[currentProject].description}</p>
                 <div className="px-5 flex justify-center items-center flex-wrap text-sm gap-2 font-[400] text-gray-500">
                 <p className="w-1 h-1 rounded-full bg-gray-300"></p>{projects[currentProject].stack.map((item, index) => (
-                    <>
                     <div key={index}>
+                    <div >
                         {item}
                     </div>
                     <p className="w-1 h-1 rounded-full bg-gray-300"></p>
-                    </>
+                    </div>
                 ))}</div>
                 <div className="flex justify-end flex-wrap gap-5 p-2">
                     {projects[currentProject].github && <Link target="_blank" to={projects[currentProject].github} className=" gap-2 items-center hidden md:flex">see on github <img className="h-4 w-auto" src={arrowSkew} /></Link>}
