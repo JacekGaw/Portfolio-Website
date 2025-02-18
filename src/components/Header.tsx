@@ -10,11 +10,11 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({children,className, variant = 0, orientation = "left"}) => {
 
     const variants = [
-        ` text-3xl font-[800] pb-5 border-b ${orientation == 'left' && "pr-[100px]"} ${orientation == 'right' && "pl-[100px]"} ${orientation == 'center' && "px-[100px]"}`,
+        ` text-3xl font-[800] drop-shadow-lg drop-shadow-black pb-5 border-b ${orientation == 'left' && "pr-[100px]"} ${orientation == 'right' && "pl-[100px]"} ${orientation == 'center' && "px-[100px]"}`,
     ]
 
     return (
-        <h3 className={`${variants[variant]}  text-${orientation} ${className}`}>{children}</h3>
+        <h3 className={`${variants[variant]} text-${orientation} ${className}`}>{children}</h3>
     )
 }
 

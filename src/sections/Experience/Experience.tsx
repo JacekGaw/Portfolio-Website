@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import { Experiences } from "./Experiences";
 import arrowLongImg from "../../assets/img/Arrow.svg"
 import arrowShortImg from "../../assets/img/ArrowShorter.png"
+import { motion } from "motion/react";
 
 const Experience: React.FC = () => {
   return (
@@ -16,7 +17,12 @@ const Experience: React.FC = () => {
             Science degree and, in March 2024, landed my first developer job—a
             breakthrough in my career. <br/>But I don’t stop there—I keep growing!
           </p>
-          <div className="max-w-screen-md w-full flex flex-col gap-20">
+          <motion.div
+          initial={{opacity: 0, y: 100}}
+          whileInView={{opacity: 1, y: 0} }
+          viewport={{ once: true, amount: 0.7 }}
+          className="max-w-screen-md w-full flex flex-col gap-20">
+
             {Experiences.map((experience) => (
                 <div key={experience.dates} className="p-10 border rounded-3xl flex flex-col gap-5">
                     <div className="flex justify-between items-center gap-5">
@@ -26,15 +32,21 @@ const Experience: React.FC = () => {
                     <h3 className="text-4xl font-[600]">{experience.jobTitle}</h3>
                     <p className="line-clamp-3">{experience.description}</p>
                     <div className="flex justify-end">
-                        <button className="flex gap-2 items-center">
+                        <motion.button
+                        initial={{ y: 0 }} // Start below with opacity 0
+                        whileInView={{ y: [0, 0, -10, 0], transition: { duration: 0.5, delay: 0.5, ease: "easeOut" } }} // Moves up once and settles
+                        whileHover={{ x:-10}}
+                        whileTap={{scale: 0.9}}
+                        viewport={{ once: true, amount: 1 }}
+                        className="flex gap-2 items-center cursor-pointer">
                             <p>projects and more</p>
                             <img className="hidden md:block" src={arrowLongImg} />
                             <img className="md:hidden h-2 w-auto" src={arrowShortImg} />
-                        </button>
+                        </motion.button>
                     </div>
                 </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

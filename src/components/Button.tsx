@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { motion } from "motion/react";
 
 interface ButtonProps {
     children: ReactNode;
@@ -18,7 +19,10 @@ const Button: React.FC<ButtonProps> = ({children, variant = 0, size = 'base', on
     ]
 
     return (
-        <button onClick={onClick} className={`${variants[variant]} cursor-pointer ${className} ${disabled && "bg-gray-200"}`} type={type} disabled={disabled}>{children}</button>
+        <motion.button
+        whileHover={{scale: 1.1}}
+        whileTap={{scale: 0.9}}
+        onClick={onClick} className={`${variants[variant]} cursor-pointer ${className} ${disabled && "bg-gray-200"}`} type={type} disabled={disabled}>{children}</motion.button>
     )
 }
 

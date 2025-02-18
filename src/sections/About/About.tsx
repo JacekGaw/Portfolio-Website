@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
 import { technologies } from "./technologies";
+import { motion } from "motion/react";
 
 
 
@@ -9,7 +10,11 @@ const About: React.FC = () => {
   return (
     <section id="about" className="flex border-t p-10 w-full h-full min-h-screen justify-center items-center">
       <div className="w-full max-w-screen-xl flex flex-col lg:flex-row gap-20 md:gap-20 justify-center items-center md:justify-between md:items-start">
-        <div className="flex-1 flex flex-col gap-10 lg:gap-20">
+        <motion.div
+        initial={{opacity: 0, x: -100}}
+        whileInView={{opacity: 1, x: 0} }
+        viewport={{ once: true, amount: 0.5 }} 
+        className="flex-1 flex flex-col gap-10 lg:gap-20">
           <div className="flex flex-col justify-center items-start gap-5">
             <Header>About</Header>
             <p className="leading-7">
@@ -29,8 +34,12 @@ const About: React.FC = () => {
             <p>Ended with a degree in Computer Science.</p>
             </div>
           </div>
-        </div>
-        <div className="flex-1 flex flex-col items-end gap-5">
+        </motion.div>
+        <motion.div
+        initial={{opacity: 0, x: 100}}
+        whileInView={{opacity: 1, x: 0} }
+        viewport={{ once: true, amount: 0.5 }} 
+        className="flex-1 flex flex-col items-end gap-5">
             <Header className="hidden lg:block" orientation="right">Technologies</Header>
             <Header className="lg:hidden p-0" orientation="left">Technologies</Header>
           
@@ -50,7 +59,7 @@ const About: React.FC = () => {
                 ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
