@@ -1,6 +1,7 @@
 import locationIcon from "../../assets/img/location.svg";
 import Socials from "../../components/Socials";
 import { motion } from "motion/react";
+import ThemeSwitch from "../../components/ThemeSwitch";
 
 const containerDelayed = {
   hidden: { opacity: 0 },
@@ -35,7 +36,8 @@ const listItemNegative = {
 
 const Hero: React.FC = () => {
   return (
-    <section className="flex p-10 w-full h-full min-h-screen justify-center items-center dark:bg-black dark:text-gray-100">
+    <section className="flex p-10 w-full h-full flex-col min-h-screen justify-between items-center dark:bg-black dark:text-gray-100">
+      <ThemeSwitch />
       <div className="w-full max-w-screen-xl flex flex-col md:flex-row gap-10 md:gap-5 justify-center items-center md:justify-between md:items-start">
         <motion.header
           variants={container}
@@ -95,6 +97,7 @@ const Hero: React.FC = () => {
           </motion.ul>
         </nav>
       </div>
+      <div className="h-4 w-auto"></div>
     </section>
   );
 };
