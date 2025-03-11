@@ -46,7 +46,7 @@ const About: React.FC = () => {
           <div className="flex flex-col items-center lg:items-end gap-5">
             <p className="text-xl font-[600]">Front-end</p>
             <div className="flex gap-2 lg:gap-5 flex-wrap justify-center lg:justify-end">
-                {technologies.map((technology) => (
+                {technologies.frontend.map((technology) => (
                     <Button size="sm" key={technology.name}><img src={technology.icon} className="h-6 lg:h-8 w-auto" /><p className="pl-2">{technology.name}</p></Button>
                 ))}
             </div>
@@ -54,7 +54,15 @@ const About: React.FC = () => {
           <div className="flex flex-col items-center lg:items-end gap-5">
             <p className="text-xl font-[600]">Back-end</p>
             <div className="flex gap-2 lg:gap-5 flex-wrap justify-center lg:justify-end">
-                {technologies.map((technology) => (
+                {technologies.backend.map((technology) => (
+                    <Button size="sm" key={technology.name}><img src={technology.icon} className="h-6 lg:h-8 w-auto" /><p className="pl-2">{technology.name}</p></Button>
+                ))}
+            </div>
+          </div>
+          <div className="flex flex-col items-center lg:items-end gap-5">
+            <p className="text-xl font-[600]">Testing / Devops / Tools</p>
+            <div className="flex gap-2 lg:gap-5 flex-wrap justify-center lg:justify-end">
+                {technologies.others.map((technology) => (
                     <Button size="sm" key={technology.name}><img src={technology.icon} className="h-6 lg:h-8 w-auto" /><p className="pl-2">{technology.name}</p></Button>
                 ))}
             </div>
