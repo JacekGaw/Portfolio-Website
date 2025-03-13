@@ -7,6 +7,7 @@ import arrowShort from "../../assets/img/ArrowShorter.png";
 import arrowRight from "../../assets/img/arrow_right.svg";
 import Button from "../../components/Button";
 import { motion, AnimatePresence } from "motion/react";
+import TechStack from "../../components/TechStack";
 
 const Projects: React.FC = () => {
   const [currentProject, setCurrentProject] = useState<number>(0);
@@ -30,7 +31,7 @@ const Projects: React.FC = () => {
     <>
       <section
         id="projects"
-        className="flex border-t dark:border-gray-500 p-10 w-full h-full min-h-screen justify-center items-center dark:bg-black dark:text-gray-100"
+        className="flex border-t dark:border-gray-500 p-10 w-full h-full min-h-screen justify-center items-center"
       >
         <div className="w-full max-w-screen-xl flex flex-col gap-10 justify-center items-center">
           <Header orientation="center">Projects</Header>
@@ -56,15 +57,7 @@ const Projects: React.FC = () => {
                 <p className="leading-7">
                   {projects[currentProject].description}
                 </p>
-                <div className=" flex justify-start items-center flex-wrap text-sm gap-2 font-[400] text-gray-500 dark:text-gray-400">
-                  <p className="w-1 h-1 rounded-full bg-gray-300"></p>
-                  {projects[currentProject].stack.map((item, index) => (
-                    <div className="flex items-center gap-2" key={index}>
-                      <div>{item}</div>
-                      <p className="w-1 h-1 rounded-full bg-gray-300"></p>
-                    </div>
-                  ))}
-                </div>
+                <TechStack items={projects[currentProject].stack} />
                 <div className="flex justify-end flex-wrap gap-5 p-2">
                   {projects[currentProject].github && (
                     <motion.div

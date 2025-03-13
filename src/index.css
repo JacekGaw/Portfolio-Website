@@ -4,7 +4,6 @@
 
 
 * {
-  margin: 0;
   box-sizing: border-box;
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
@@ -15,4 +14,35 @@ html {
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
   scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  height: 8px; /* Scrollbar height */
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #efefef; /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc; /* Thumb color */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888; /* Thumb color on hover */
+  cursor: pointer;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #000; /* Dark background */
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #111; /* Darker thumb */
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #222; /* Slightly lighter on hover */
 }

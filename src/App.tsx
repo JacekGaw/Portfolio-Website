@@ -8,7 +8,7 @@ import Contact from "./sections/Contact/Contact"
 const App: React.FC = () => {
 
   return (
-    <main className="tracking-widest">
+    <main className="tracking-widest bg-gray-50 overflow-x-hidden dark:bg-gray-950 dark:text-gray-100">
       <Hero />
       <About />
       <Experience />
