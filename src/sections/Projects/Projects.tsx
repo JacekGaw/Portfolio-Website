@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Header from "../../components/Header";
 import { projects } from "./projectsArr";
-import { Link } from "react-router";
 import arrowSkew from "../../assets/img/ArrowSkewed.png";
-import arrowShort from "../../assets/img/ArrowShorter.png";
+// import arrowShort from "../../assets/img/ArrowShorter.png";
 import arrowRight from "../../assets/img/arrow_right.svg";
 import Button from "../../components/Button";
 import { motion, AnimatePresence } from "motion/react";
@@ -40,7 +39,7 @@ const Projects: React.FC = () => {
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.7 }}
-            className="w-full flex flex-col lg:flex-row gap-20 items-center justify-between"
+            className="w-full flex flex-col md:flex-row gap-20 items-center justify-between"
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -54,41 +53,36 @@ const Projects: React.FC = () => {
                   {projects[currentProject].name}
                 </motion.h3>
 
-                <p className="leading-7">
+                <p className="leading-7 text-justify text-sm xl:text-base">
                   {projects[currentProject].description}
                 </p>
                 <TechStack items={projects[currentProject].stack} />
                 <div className="flex justify-end flex-wrap gap-5 p-2">
                   {projects[currentProject].github && (
-                    <motion.div
+                    <motion.a
                     whileHover={{x:-5}}
                     whileTap={{scale: 0.9}}
-                    >
-                    <Link
                       target="_blank"
-                      to={projects[currentProject].github}
+                      href={projects[currentProject].github}
                       className=" gap-2 items-center hidden md:flex"
                     >
                       see on github{" "}
                       <img className="h-4 w-auto dark:invert" src={arrowSkew} />
-                    </Link>
-                    </motion.div>
+                    </motion.a>
                   )}
                   {projects[currentProject].github && (
-                    <motion.div
+                    <motion.a
                     whileHover={{x:-5}}
-                    whileTap={{scale: 0.9}}>
-                    <Link
+                    whileTap={{scale: 0.9}}
                       target="_blank"
-                      to={projects[currentProject].github}
+                      href={projects[currentProject].github}
                       className="flex gap-2 items-center md:hidden"
                     >
                       github{" "}
                       <img className="h-4 w-auto md:hidden dark:invert" src={arrowSkew} />
-                    </Link>
-                    </motion.div>
+                    </motion.a>
                   )}
-                  <motion.button
+                  {/* <motion.button
                   whileHover={{x:-5}}
                   whileTap={{scale: 0.9}}
                   className="hidden md:flex gap-2 items-center cursor-pointer">
@@ -99,7 +93,7 @@ const Projects: React.FC = () => {
                   whileTap={{scale: 0.9}}
                   className="flex gap-2 items-center md:hidden">
                     more <img className="dark:invert" src={arrowShort} />
-                  </motion.button>
+                  </motion.button> */}
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -109,7 +103,7 @@ const Projects: React.FC = () => {
             initial={{ opacity: 0, scale: 0.7 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.7, transition:{delay: 0.1} }}
-            className="flex-1 flex justify-center items-center">
+            className="flex-1 justify-center hidden md:flex items-center">
               <img
                 src={projects[currentProject].images[0]}
                 className="w-full drop-shadow-lg"

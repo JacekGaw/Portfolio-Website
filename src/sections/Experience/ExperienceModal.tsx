@@ -9,7 +9,7 @@ const ExperienceModal: React.FC<{ experience: ExperienceType }> = ({
 }) => {
   return (
     <>
-      <div className="w-full max-w-screen-xl flex flex-col gap-10 justify-center items-center">
+      <div className="w-full  max-w-screen-xl flex flex-col gap-10 justify-center items-center">
         <div
           className="max-w-screen-md w-full flex flex-col"
         >
@@ -25,7 +25,7 @@ const ExperienceModal: React.FC<{ experience: ExperienceType }> = ({
               <p>{experience.company}</p>
               </div>
             </div>
-            <p className="text-sm md:text-base text-justify">{experience.description}</p>
+            <p className="text-sm md:text-base leading-7 text-justify">{experience.description}</p>
             {experience.projects && (
               <div>
                 <h3 className="text-3xl font-[600]">Projects:</h3>
@@ -36,7 +36,7 @@ const ExperienceModal: React.FC<{ experience: ExperienceType }> = ({
                                 <h4 className="px-3 text-xl font-[600] dark:border-white border-black border-l-2">{project.name}</h4>
                                 <div className="flex flex-col gap-2 px-3">
                                 <TechStack items={project.stack} />
-                                <p className="text-sm text-justify">{project.description}</p>
+                                <p className="text-sm text-justify leading-6">{project.description}</p>
                                 </div>
                             </li>
                         )
