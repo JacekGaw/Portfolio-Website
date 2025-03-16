@@ -17,9 +17,10 @@ const About: React.FC = () => {
           viewport={{ once: true, amount: 0.5 }}
           className="flex-1 flex flex-col gap-10 lg:gap-20"
         >
-          <div className="flex flex-col justify-center items-start gap-5">
-            <Header>About</Header>
-            <p className="leading-7">
+          <div className="flex flex-col justify-center items-center lg:items-start gap-5">
+            <Header orientation="center" className="lg:hidden">About</Header>
+            <Header orientation="left" className="lg:flex hidden">About</Header>
+            <p className="leading-7 text-justify">
               I'm a JavaScript developer with a year of professional experience,
               specializing in React, TypeScript, and Node.js. I build
               functional, well-optimized web apps with a focus on frontend
@@ -28,8 +29,9 @@ const About: React.FC = () => {
               high-quality, maintainable code.
             </p>
           </div>
-          <div className="flex flex-col justify-center items-start gap-5">
-            <Header>Education</Header>
+          <div className="flex flex-col justify-center items-center lg:items-start gap-5">
+          <Header orientation="center" className="lg:hidden">Education</Header>
+          <Header orientation="left" className="lg:flex hidden">Education</Header>
             <div className="flex flex-col gap-2">
               <p>2021 - 2025, Bachelor of Engineering</p>
               <h3 className="font-[600] text-2xl">
@@ -43,12 +45,12 @@ const About: React.FC = () => {
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          className="flex-1 flex flex-col items-end gap-5"
+          className="flex-1 flex flex-col items-center lg:items-end gap-5"
         >
           <Header className="hidden lg:block" orientation="right">
             Technologies
           </Header>
-          <Header className="lg:hidden p-0" orientation="left">
+          <Header className="lg:hidden p-0" orientation="center">
             Technologies
           </Header>
 
