@@ -7,7 +7,7 @@ const TechStack: React.FC<{ items: string[] }> = ({ items }) => {
         <p className="w-1 h-1 rounded-full bg-gray-300"></p>
         {items.map((item, index) => (
           <div className="flex items-center gap-2" key={index}>
-            <div>{item}</div>
+            <div className="text-xs 2xl:text-sm">{item}</div>
             <p className="w-1 h-1 rounded-full bg-gray-300"></p>
           </div>
         ))}

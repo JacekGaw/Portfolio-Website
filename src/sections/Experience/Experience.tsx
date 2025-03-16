@@ -1,8 +1,9 @@
 import React, { useRef, useState } from "react";
 import Header from "../../components/Header";
 import { Experiences } from "./Experiences";
-import arrowLongImg from "../../assets/img/Arrow.svg";
-import arrowShortImg from "../../assets/img/ArrowShorter.png";
+// import arrowLongImg from "../../assets/img/Arrow.svg";
+// import arrowShortImg from "../../assets/img/ArrowShorter.png";
+import arrowRight from "../../assets/img/right_carret.svg";
 import { motion } from "motion/react";
 import Modal, { ModalRef } from "../../components/Modal";
 import ExperienceModal from "./ExperienceModal";
@@ -34,7 +35,7 @@ const Experience: React.FC = () => {
             breakthrough in my career. <br />
             But I don’t stop there—I keep growing!
           </p>
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.7 }}
@@ -43,7 +44,7 @@ const Experience: React.FC = () => {
             {Experiences.map((experience, index) => (
               <div
                 key={experience.company}
-                className="p-10 flex-1 w-full min-w-[300px] md:min-w-lg border rounded-3xl flex flex-col justify-between  gap-5"
+                className="p-10 flex-1 w-full min-w-[300px] md:min-w-lg bg-gray-100 dark:bg-gray-900 drop-shadow-sm rounded-3xl flex flex-col justify-between  gap-5"
               >
                 <div className="flex flex-col gap-5">
                   <div className="flex justify-between items-center gap-5">
@@ -51,7 +52,7 @@ const Experience: React.FC = () => {
                     <p>{experience.company}</p>
                   </div>
                   <h3 className="text-4xl font-[600]">{experience.jobTitle}</h3>
-                  <p className="line-clamp-3 ">{experience.description}</p>
+                  <p className="line-clamp-3 text-gray-600 dark:text-gray-400">{experience.description}</p>
                 </div>
                 <div className="flex justify-end">
                   <motion.button
@@ -83,7 +84,32 @@ const Experience: React.FC = () => {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </motion.div> */}
+          <div className="w-full max-w-xl flex flex-col gap-2">
+          {Experiences.map((experience, index) => (
+            <motion.div
+            whileHover={{scale: 1.02}}
+            onClick={() => handleOpenExperience(index)}  key={experience.company} className="rounded-lg shadow-sm bg-gray-100 dark:bg-gray-900 p-5 flex justify-between cursor-pointer items-center gap-2">
+              <div className="flex flex-col ">
+                  <div className="flex justify-between items-center gap-5">
+                    <p>{experience.dates}</p>
+                  </div>
+                  <h3 className="text-2xl font-[600]">{experience.jobTitle} <span className="text-base font-[400]">({experience.company})</span></h3>
+                </div>
+              <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => handleOpenExperience(index)}
+                    className="flex justify-center items-center"
+                  >
+                    <img
+                      className=" w-3 h-auto dark:invert"
+                      src={arrowRight}
+                    />
+                  </motion.button>
+            </motion.div>
+          ))}
+          </div>
         </div>
       </section>
     </>
